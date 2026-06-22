@@ -64,4 +64,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn release
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "⚠️  NPM_TOKEN secret topilmadi — reliz o'tkazib yuborildi (CI yashil qoladi)."
+            echo "   Token qo'shgach: repo → Settings → Secrets and variables → Actions → NPM_TOKEN."
+            exit 0
+          fi
+          yarn release
