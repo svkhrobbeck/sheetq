@@ -46,6 +46,7 @@ jobs:
       contents: write # CHANGELOG/tag/commit push + GitHub release
       issues: write # semantic-release izohlari
       pull-requests: write
+      id-token: write # npm OIDC trusted publishing + provenance
 
     steps:
       - uses: actions/checkout@v6
@@ -57,17 +58,11 @@ jobs:
         with:
           node-version: "24.x"
           cache: "yarn"
-          registry-url: "https://registry.npmjs.org"
+      - name: Upgrade npm (OIDC trusted publishing uchun >= 11.5.1 kerak)
+        run: npm install -g npm@latest
       - run: yarn --frozen-lockfile
       - run: yarn build
-      - name: Release (semantic-release)
+      - name: Release (semantic-release, OIDC)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -z "$NPM_TOKEN" ]; then
-            echo "⚠️  NPM_TOKEN secret topilmadi — reliz o'tkazib yuborildi (CI yashil qoladi)."
-            echo "   Token qo'shgach: repo → Settings → Secrets and variables → Actions → NPM_TOKEN."
-            exit 0
-          fi
-          yarn release
+        run: yarn release
