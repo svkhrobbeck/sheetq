@@ -1,6 +1,6 @@
 {
   "name": "sheetq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typed, server-side query layer for Google Sheets — model a sheet like a tiny ORM: gviz-powered search, type-safe read & write.",
   "type": "module",
   "author": {
