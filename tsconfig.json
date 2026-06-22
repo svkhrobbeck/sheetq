@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    // Language & libs
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM"],
+    "moduleDetection": "force",
+    "types": ["node"],
+
+    // Output (tsup emits dist; tsc is for type-checking only)
+    "declaration": true,
+    "noEmit": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

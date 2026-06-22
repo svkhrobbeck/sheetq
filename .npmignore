@@ -1,0 +1,11 @@
+# Source & config — only `dist` is published (see package.json "files")
+src
+node_modules
+tsconfig.json
+tsup.config.ts
+bun.lock
+yarn.lock
+package-lock.json
+.gitignore
+*.tgz
+*.tsbuildinfo

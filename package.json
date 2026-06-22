@@ -1,0 +1,99 @@
+{
+  "name": "sheetq",
+  "version": "1.0.0",
+  "description": "Typed, server-side query layer for Google Sheets — model a sheet like a tiny ORM: gviz-powered search, type-safe read & write.",
+  "type": "module",
+  "author": {
+    "name": "Suhrobbek Soatov",
+    "url": "https://soatov.uz",
+    "email": "svkhrobbeck@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svkhrobbeck/sheetq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/svkhrobbeck/sheetq/issues"
+  },
+  "homepage": "https://github.com/svkhrobbeck/sheetq#readme",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "npm": "please-use-yarn",
+    "bun": "please-use-yarn",
+    "yarn": ">= 1",
+    "node": ">=24"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"{src,tools,public}/**/*.{json,ts,tsx,js,jsx,md,html}\"",
+    "format:check": "prettier --check \"{src,tools,public}/**/*.{json,ts,tsx,js,jsx,md,html}\"",
+    "release": "semantic-release",
+    "prepublishOnly": "tsup",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,js,jsx,html}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "google-sheets",
+    "spreadsheet",
+    "sheets",
+    "gviz",
+    "orm",
+    "typescript",
+    "googleapis",
+    "query",
+    "service-account"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "googleapis": "^173.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.17.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^22.10.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "semantic-release": "^24.2.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.19.0"
+  }
+}
